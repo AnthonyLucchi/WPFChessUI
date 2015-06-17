@@ -24,11 +24,11 @@ namespace ChessDemo
 	/// </summary>
 	public partial class MainWindow : Window
 	{
-		private ObservableCollection<ChessPiece> Pieces;
+		public ObservableCollection<ChessPiece> Pieces;
 
         public MainWindow()
         {
-            InitializeComponent();
+            //InitializeComponent();
 
             this.Pieces = new ObservableCollection<ChessPiece>() {
                 
@@ -68,7 +68,8 @@ namespace ChessDemo
 
 			};
 
-            this.ChessBoard.ItemsSource = this.Pieces;
+            //this.ChessBoard.ItemsSource = this.Pieces;
+
         }
             
             #region events
@@ -86,6 +87,14 @@ namespace ChessDemo
         
 		 }
             #endregion events
-            
-	}
+
+        #region methods
+
+         public void Move()
+         {
+             Pieces.Add(new ChessPiece { Pos = new Point(3, 4), Type = PieceType.Rook, Player = Player.Black });
+         }
+
+        #endregion methods
+    }
 }
